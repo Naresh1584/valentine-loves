@@ -1,249 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Valentine 💕</title>
+    <meta charset="UTF-8">
 
-<style>
-* { box-sizing: border-box; }
+    <!-- Mobile perfect viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-    margin: 0;
-    height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    overflow: hidden;
-}
+    <title>My Forever Valentine ❤️</title>
 
-/* 🌸 Rose petals */
-.petal {
-    position: fixed;
-    top: -40px;
-    font-size: 22px;
-    animation: fall linear infinite;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-@keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-/* Center */
-.container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: #fff;
+            text-align: center;
+        }
 
-/* Card */
-.card {
-    background: rgba(255,255,255,0.96);
-    border-radius: 22px;
-    padding: 25px;
-    width: 90%;
-    max-width: 360px;
-    text-align: center;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-}
+        .container {
+            width: 90%;
+            max-width: 360px;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 22px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
 
-h1 {
-    color: #ff4d6d;
-    font-size: 26px;
-    margin-bottom: 10px;
-}
+        h1 {
+            margin: 0 0 12px;
+            font-size: 1.9rem;
+        }
 
-/* Couple photo */
-.couple-photo {
-    margin: 15px 0;
-}
+        img {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+            border-radius: 18px;
+            margin: 14px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+        }
 
-.couple-photo img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #ff4d6d;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 14px 0;
+        }
 
-/* Heart */
-.heart {
-    font-size: 45px;
-    animation: beat 1.2s infinite;
-}
+        .counter {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
 
-@keyframes beat {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-}
+        .heart {
+            position: fixed;
+            font-size: 22px;
+            color: #ffdde1;
+            animation: floatUp 4s linear infinite;
+            pointer-events: none;
+        }
 
-p {
-    font-size: 16px;
-    color: #444;
-    line-height: 1.7;
-}
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.6);
+                opacity: 0;
+            }
+        }
 
-/* Days counter */
-.counter {
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #ff4d6d;
-}
+        .petal {
+            position: fixed;
+            top: -10%;
+            font-size: 20px;
+            animation: fall 6s linear infinite;
+            pointer-events: none;
+        }
 
-/* Button */
-button {
-    margin-top: 15px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    background: #ff4d6d;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
+        @keyframes fall {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(50px) translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
 
-/* Popup */
-.popup {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
+        .secret-btn {
+            margin-top: 14px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 20px;
+            background: #fff;
+            color: #ff4d6d;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.popup-content {
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
-    width: 80%;
-    max-width: 300px;
-    text-align: center;
-    animation: pop 0.3s ease;
-}
+        .popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
 
-@keyframes pop {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
+        .popup-content {
+            background: #fff;
+            color: #ff4d6d;
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
 
-/* Tap hearts */
-.tap-heart {
-    position: absolute;
-    animation: floatUp 2s forwards;
-}
-
-@keyframes floatUp {
-    to {
-        transform: translateY(-150px) scale(1.8);
-        opacity: 0;
-    }
-}
-</style>
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 
-<body onclick="tapHeart(event); playMusic();">
-
-<!-- 🎵 Music -->
-<audio id="music" loop>
-    <source src="love.mp3" type="audio/mpeg">
-</audio>
+<body>
 
 <div class="container">
-    <div class="card">
-        <h1>Happy Valentine’s Day 💕</h1>
+    <h1>My Forever Valentine ❤️</h1>
 
-        <div class="couple-photo">
-            <img src="us.jpg" alt="Us ❤️">
-        </div>
+    <img src="us.jpg" alt="Us Together">
 
-        <div class="heart">❤️</div>
+    <p>
+        My Wifeyyyy,<br><br>
+        You are my best moment in my life,
+        and I’m so blessed to have you my dear,
+        and my forever Valentine.
+        With you, every moment feels like magic 💖
+    </p>
 
-        <p>
-            My Wifeyyyy,<br><br>
-            You are my best moment in my life,<br>
-            and I’m so blessed to have you, my dear,  
-            and my forever Valentine.<br>
-            With you, every moment feels like magic 💖
-        </p>
-
-        <div class="counter" id="daysCounter">💞 Together for 0 days</div>
-
-        <button onclick="openPopup(event)">Open My Secret 💌</button>
+    <div class="counter">
+        📅 Days together: <span id="days">0</span>
     </div>
+
+    <button class="secret-btn" onclick="openPopup()">💌 Secret Message</button>
 </div>
 
-<!-- 💬 Secret popup -->
 <div class="popup" id="popup">
     <div class="popup-content">
-        <h3>For You ❤️</h3>
         <p>
-            I choose you,<br>
-            in every lifetime,<br>
-            in every version of me 💞
+            No matter where life takes us,
+            my heart will always choose you ❤️
         </p>
-        <button onclick="closePopup()">Close 💖</button>
+        <button class="secret-btn" onclick="closePopup()">Close</button>
     </div>
 </div>
 
+<audio id="music" src="love.mp3" loop></audio>
+
 <script>
-/* 🎵 Music */
-let played = false;
-function playMusic() {
-    if (!played) {
-        document.getElementById("music").play();
-        played = true;
-    }
-}
+    // Auto play music after user interaction
+    document.body.addEventListener('click', () => {
+        document.getElementById('music').play();
+    }, { once: true });
 
-/* 💖 Tap hearts */
-function tapHeart(e) {
-    const heart = document.createElement("div");
-    heart.className = "tap-heart";
-    heart.innerHTML = "💖";
-    heart.style.left = e.clientX + "px";
-    heart.style.top = e.clientY + "px";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 2000);
-}
-
-/* 💬 Popup */
-function openPopup(e) {
-    e.stopPropagation();
-    document.getElementById("popup").style.display = "flex";
-}
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-}
-
-/* 🌸 Rose petals */
-setInterval(() => {
-    const petal = document.createElement("div");
-    petal.className = "petal";
-    petal.innerHTML = "🌸";
-    petal.style.left = Math.random() * window.innerWidth + "px";
-    petal.style.animationDuration = (3 + Math.random() * 3) + "s";
-    document.body.appendChild(petal);
-    setTimeout(() => petal.remove(), 6000);
-}, 400);
-
-/* 📅 Days together counter */
-/* 🔴 CHANGE DATE HERE */
-const startDate = new Date("2025-03-29"); // YYYY-MM-DD
-
-function updateDays() {
+    // Days together counter (CHANGE DATE)
+    const startDate = new Date("2025-08-29");
     const today = new Date();
-    const diff = today - startDate;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById("daysCounter").innerText =
-        `💞 Together for ${days} days`;
-}
-updateDays();
+    const diffTime = today - startDate;
+    document.getElementById("days").innerText =
+        Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    // Floating hearts
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "-20px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+    }, 600);
+
+    // Rose petals
+    setInterval(() => {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.innerHTML = "🌸";
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = (Math.random() * 3 + 4) + "s";
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 6000);
+    }, 800);
+
+    function openPopup() {
+        document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
 </script>
 
 </body>
